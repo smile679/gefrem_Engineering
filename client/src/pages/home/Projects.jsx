@@ -2,10 +2,11 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 
-// Replace with your actual images
+
 import project1 from "@/assets/bg_01.png";
 import project2 from "@/assets/cons11.png";
 import project3 from "@/assets/cons33.png";
+import Reveal from "@/components/motion/Reveal";
 
 const projects = [
   {
@@ -70,12 +71,13 @@ const Projects = () => {
       id="projects"
       className="w-full py-16 md:py-24 px-5 bg-white overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
-          <div className="max-w-3xl">
-            <span
-              className="
+        <Reveal>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+            <div className="max-w-3xl">
+              <span
+                className="
                 inline-flex items-center gap-2
                 px-4 py-1.5
                 rounded-full
@@ -86,47 +88,32 @@ const Projects = () => {
                 uppercase
                 tracking-widest
               "
-            >
-              <span className="w-2 h-2 rounded-full bg-[#EE6123]" />
-              Featured Projects
-            </span>
+              >
+                <span className="w-2 h-2 rounded-full bg-[#EE6123]" />
+                Featured Projects
+              </span>
 
-            <h2 className="mt-5 text-4xl md:text-5xl font-black text-gray-900 leading-tight">
-              Engineering Success
-              <span className="text-[#EE6123]"> Across Every Project</span>
-            </h2>
+              <h2 className="mt-5 text-4xl md:text-5xl font-black text-gray-900 leading-tight">
+                Engineering Success
+                <span className="text-[#EE6123]"> Across Every Project</span>
+              </h2>
 
-            <p className="mt-5 text-gray-500 leading-relaxed">
-              Explore selected projects demonstrating our expertise in
-              geotechnical investigation, foundation engineering, construction
-              supervision, and infrastructure development.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="font-bold text-[#EE6123]">
-              {String(selectedIndex + 1).padStart(2, "0")} /{" "}
-              {String(projects.length).padStart(2, "0")}
+              <p className="mt-5 text-gray-500 leading-relaxed">
+                Explore selected projects demonstrating our expertise in
+                geotechnical investigation, foundation engineering, construction
+                supervision, and infrastructure development.
+              </p>
             </div>
 
-            <button
-              onClick={scrollPrev}
-              className="
-                w-12 h-12
-                rounded-full
-                border border-gray-200
-                flex items-center justify-center
-                hover:border-[#EE6123]
-                hover:text-[#EE6123]
-                transition-all
-              "
-            >
-              <ChevronLeft size={20} />
-            </button>
+            <div className="flex items-center gap-3">
+              <div className="font-bold text-[#EE6123]">
+                {String(selectedIndex + 1).padStart(2, "0")} /{" "}
+                {String(projects.length).padStart(2, "0")}
+              </div>
 
-            <button
-              onClick={scrollNext}
-              className="
+              <button
+                onClick={scrollPrev}
+                className="
                 w-12 h-12
                 rounded-full
                 border border-gray-200
@@ -135,11 +122,27 @@ const Projects = () => {
                 hover:text-[#EE6123]
                 transition-all
               "
-            >
-              <ChevronRight size={20} />
-            </button>
+              >
+                <ChevronLeft size={20} />
+              </button>
+
+              <button
+                onClick={scrollNext}
+                className="
+                w-12 h-12
+                rounded-full
+                border border-gray-200
+                flex items-center justify-center
+                hover:border-[#EE6123]
+                hover:text-[#EE6123]
+                transition-all
+              "
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Carousel */}
         <div ref={emblaRef} className="overflow-hidden">
@@ -161,12 +164,13 @@ const Projects = () => {
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
                       />
 
-                      <div className="absolute top-5 left-5">
-                        <span
-                          className="
+                      <Reveal>
+                        <div className="absolute top-5 left-5">
+                          <span
+                            className="
                             px-4 py-2
                             rounded-full
                             bg-white/95
@@ -174,31 +178,33 @@ const Projects = () => {
                             text-xs
                             font-bold
                           "
-                        >
-                          {project.category}
-                        </span>
-                      </div>
+                          >
+                            {project.category}
+                          </span>
+                        </div>
+                      </Reveal>
                     </div>
 
                     {/* Content */}
-                    <div className="p-8 md:p-12 flex flex-col justify-center">
-                      <span className="text-[#EE6123] font-semibold text-sm">
-                        Project Showcase
-                      </span>
+                    <Reveal>
+                      <div className="p-8 md:p-12 flex flex-col justify-center">
+                        <span className="text-[#EE6123] font-semibold text-sm">
+                          Project Showcase
+                        </span>
 
-                      <h3 className="text-3xl md:text-4xl font-black text-gray-900 mt-3 leading-tight">
-                        {project.title}
-                      </h3>
+                        <h3 className="text-3xl md:text-4xl font-black text-gray-900 mt-3 leading-tight">
+                          {project.title}
+                        </h3>
 
-                      <p className="mt-6 text-gray-500 leading-relaxed">
-                        {project.description}
-                      </p>
+                        <p className="mt-6 text-gray-500 leading-relaxed">
+                          {project.description}
+                        </p>
 
-                      <div className="flex flex-wrap gap-3 mt-8">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="
+                        <div className="flex flex-wrap gap-3 mt-8">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="
                               px-4 py-2
                               rounded-full
                               bg-gray-100
@@ -206,16 +212,16 @@ const Projects = () => {
                               text-sm
                               font-medium
                             "
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
 
-                      <div className="mt-10">
-                        <a
-                          href="#contact"
-                          className="
+                        <div className="mt-10">
+                          <a
+                            href="#contact"
+                            className="
                             inline-flex
                             items-center
                             gap-2
@@ -227,12 +233,13 @@ const Projects = () => {
                             hover:-translate-y-1
                             transition-all
                           "
-                        >
-                          Discuss Similar Project
-                          <ArrowUpRight size={18} />
-                        </a>
+                          >
+                            Discuss Similar Project
+                            <ArrowUpRight size={18} />
+                          </a>
+                        </div>
                       </div>
-                    </div>
+                    </Reveal>
                   </div>
                 </div>
               </div>

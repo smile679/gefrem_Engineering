@@ -1,3 +1,4 @@
+import Reveal from "@/components/motion/Reveal";
 import {
   Microscope,
   Layers,
@@ -99,55 +100,58 @@ const services = [
 const Services = () => {
   return (
     <section id="service" className="w-full px-5 bg-[#F7F6F3]">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Featured Service */}
         <div className="mb-10">
-          <div className="bg-[#EE6123] border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm">
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="w-16 h-16 rounded-2xl bg-[#FFF0E8] flex items-center justify-center shrink-0">
-                <Microscope size={30} className="text-[#EE6123]" />
-              </div>
+          <Reveal>
+            <div className="bg-[#EE6123] border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm">
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-16 h-16 rounded-2xl bg-[#FFF0E8] flex items-center justify-center shrink-0">
+                  <Microscope size={30} className="text-[#EE6123]" />
+                </div>
 
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-white">
-                  Core Service
-                </span>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-white">
+                    Core Service
+                  </span>
 
-                <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mt-2">
-                  Geotechnical Investigation
-                </h3>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mt-2">
+                    Geotechnical Investigation
+                  </h3>
 
-                <p className="text-white mt-4 leading-relaxed max-w-3xl">
-                  We provide comprehensive site investigations using advanced
-                  drilling, field testing, and subsurface analysis to deliver
-                  reliable ground data for safe and cost-effective engineering
-                  design.
-                </p>
+                  <p className="text-white mt-4 leading-relaxed max-w-3xl">
+                    We provide comprehensive site investigations using advanced
+                    drilling, field testing, and subsurface analysis to deliver
+                    reliable ground data for safe and cost-effective engineering
+                    design.
+                  </p>
 
-                <div className="flex flex-wrap gap-3 mt-5">
-                  {[
-                    "Borehole Drilling",
-                    "In-Situ Testing",
-                    "Ground Investigation",
-                    "Site Characterisation",
-                  ].map((item) => (
-                    <span
-                      key={item}
-                      className="px-4 py-2 rounded-full bg-[#FFF0E8] text-[#EE6123] text-sm font-semibold"
-                    >
-                      {item}
-                    </span>
-                  ))}
+                  <div className="flex flex-wrap gap-3 mt-5">
+                    {[
+                      "Borehole Drilling",
+                      "In-Situ Testing",
+                      "Ground Investigation",
+                      "Site Characterisation",
+                    ].map((item) => (
+                      <span
+                        key={item}
+                        className="px-4 py-2 rounded-full bg-[#FFF0E8] text-[#EE6123] text-sm font-semibold"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span
-            className="
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span
+              className="
               inline-flex items-center gap-2
               px-4 py-1.5
               rounded-full
@@ -158,35 +162,37 @@ const Services = () => {
               uppercase
               tracking-widest
             "
-          >
-            <span className="w-2 h-2 rounded-full bg-[#EE6123]" />
-            Our Expertise
-          </span>
+            >
+              <span className="w-2 h-2 rounded-full bg-[#EE6123]" />
+              Our Expertise
+            </span>
 
-          <h2 className="mt-5 text-4xl md:text-5xl font-black text-gray-900 leading-tight">
-            Engineering Solutions From
-            <span className="text-[#EE6123]"> Ground Investigation</span> to
-            Construction Delivery
-          </h2>
+            <h2 className="mt-5 text-4xl md:text-5xl font-black text-gray-900 leading-tight">
+              Engineering Solutions From
+              <span className="text-[#EE6123]"> Ground Investigation</span> to
+              Construction Delivery
+            </h2>
 
-          <p className="mt-5 text-gray-500 leading-relaxed">
-            Delivering geotechnical investigations, foundation engineering,
-            laboratory testing, construction supervision, and technical
-            consultancy services for projects of every scale.
-          </p>
+            <p className="mt-5 text-gray-500 leading-relaxed">
+              Delivering geotechnical investigations, foundation engineering,
+              laboratory testing, construction supervision, and technical
+              consultancy services for projects of every scale.
+            </p>
 
-          <p className="mt-3 text-sm font-semibold text-[#EE6123]" lang="am">
-            ጥራት፣ አመኔታ እና ብቃት — የእኛ መሠረት ነው።
-          </p>
-        </div>
+            <p className="mt-3 text-sm font-semibold text-[#EE6123]" lang="am">
+              ጥራት፣ አመኔታ እና ብቃት — የእኛ መሠረት ነው።
+            </p>
+          </div>
+        </Reveal>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-3">
           {services.map(
             ({ icon: Icon, title, amharic, description, highlights }) => (
-              <div
-                key={title}
-                className="
+              <Reveal>
+                <div
+                  key={title}
+                  className="
                   group
                   bg-white
                   rounded-2xl
@@ -199,41 +205,45 @@ const Services = () => {
                   hover:shadow-xl
                   hover:border-[#EE6123]/30
                 "
-              >
-                <div className="flex gap-4">
-                  <div
-                    className="
+                >
+                  <div className="flex flex-col gap-4">
+                    <div className="flex gap-4">
+                      <div
+                        className="
                       w-14 h-14
                       shrink-0
                       rounded-xl
                       bg-[#FFF0E8]
                       flex items-center justify-center
                     "
-                  >
-                    <Icon size={26} className="text-[#EE6123]" />
-                  </div>
+                      >
+                        <Icon size={26} className="text-[#EE6123]" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-900 leading-tight">
+                          {title}
+                        </h3>
 
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 leading-tight">
-                      {title}
-                    </h3>
+                        <p
+                          lang="am"
+                          className="text-xs text-[#EE6123] font-semibold mt-1"
+                        >
+                          {amharic}
+                        </p>
+                      </div>
+                    </div>
 
-                    <p
-                      lang="am"
-                      className="text-xs text-[#EE6123] font-semibold mt-1"
-                    >
-                      {amharic}
-                    </p>
+                    <div className="flex flex-col">
+                      <div className="w-full flex-1">
+                        <p className="text-sm text-gray-500 leading-relaxed mt-3">
+                          {description}
+                        </p>
 
-                    <p className="text-sm text-gray-500 leading-relaxed mt-3">
-                      {description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {highlights.map((item) => (
-                        <span
-                          key={item}
-                          className="
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {highlights.map((item) => (
+                            <span
+                              key={item}
+                              className="
                             px-3 py-1
                             rounded-full
                             bg-gray-100
@@ -241,35 +251,38 @@ const Services = () => {
                             text-xs
                             font-medium
                           "
-                        >
-                          {item}
-                        </span>
-                      ))}
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ),
           )}
         </div>
 
         {/* CTA */}
-        <div className="mt-20">
-          <div className="bg-[#EE6123] rounded-3xl p-10 md:p-14 text-center">
-            <h3 className="text-3xl md:text-4xl font-black text-white">
-              Ready to Build on a Solid Foundation?
-            </h3>
+        <Reveal>
+          <div className="mt-20">
+            <div className="bg-[#EE6123] rounded-3xl p-10 md:p-14 text-center">
+              <h3 className="text-3xl md:text-4xl font-black text-white">
+                Ready to Build on a Solid Foundation?
+              </h3>
 
-            <p className="text-white/80 mt-4 max-w-2xl mx-auto">
-              Partner with Gefrem Engineering for reliable site investigations,
-              foundation solutions, construction supervision, and engineering
-              consultancy tailored to your project.
-            </p>
+              <p className="text-white/80 mt-4 max-w-2xl mx-auto">
+                Partner with Gefrem Engineering for reliable site
+                investigations, foundation solutions, construction supervision,
+                and engineering consultancy tailored to your project.
+              </p>
 
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <a
-                href="#contact"
-                className="
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <a
+                  href="#contact"
+                  className="
                   bg-white
                   text-[#EE6123]
                   px-6 py-3
@@ -278,13 +291,13 @@ const Services = () => {
                   hover:-translate-y-1
                   transition-all
                 "
-              >
-                Request Consultation
-              </a>
+                >
+                  Request Consultation
+                </a>
 
-              <a
-                href="#projects"
-                className="
+                <a
+                  href="#projects"
+                  className="
                   border
                   border-white/30
                   text-white
@@ -294,12 +307,13 @@ const Services = () => {
                   hover:bg-white/10
                   transition-all
                 "
-              >
-                View Projects
-              </a>
+                >
+                  View Projects
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

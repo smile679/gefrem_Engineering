@@ -19,9 +19,9 @@ const Hero = () => {
       <>
         <section
           id="home"
-          className="min-h-screen w-full bg-[url(@/assets/033.png)] bg-no-repeat bg-cover bg-right"
+          className="min-h-screen w-full bg-[url(@/assets/022.png)] bg-no-repeat bg-cover bg-right"
         >
-          <div className="w-full max-w-6xl mx-auto h-full flex max-sm:flex-col items-center justify-between px-5 pt-30 md:pb-10">
+          <div className="w-full max-w-6xl mx-auto h-full flex max-sm:flex-col items-center justify-center px-5 pt-30 md:pb-10">
             <div className="w-full h-full flex md:flex-1 flex-col justify-between text-white">
               <h3 className="w-fit text-sm flex justify-center items-center h-0.5 text-center bg-white text-gray-900 rounded-lg leading-none py-3 px-2">
                 Geotechnical Investigation & Consultancy
@@ -63,11 +63,11 @@ const Hero = () => {
               <h1 className=" text-shadow-gray-900 text-shadow-sm">
                 <SplitText
                   text="Building Futures."
-                  className="text-5xl sm:text-7xl font-bold leading-tight text-gray-900"
+                  className="text-5xl sm:text-6xl font-bold leading-tight text-gray-900"
                   delay={50}
                   duration={1.25}
                   ease="power3.out"
-                  splitType="lines"
+                  splitType="chars"
                   from={{ opacity: 0, y: 40 }}
                   to={{ opacity: 1, y: 0 }}
                   threshold={0.1}
@@ -77,8 +77,10 @@ const Hero = () => {
                   showCallback
                 />
               </h1>
-              <p className="w-full max-w-md my-3 text-lg md:text-md text-center font-bold
-               text-gray-900 text-shadow-2xs text-shadow-gray-200 leading-relaxed drop-shadow-white drop-shadow-md">
+              <p
+                className="w-full max-w-md my-3 text-lg md:text-md text-center font-bold
+               text-gray-900 text-shadow-2xs text-shadow-gray-200 leading-relaxed drop-shadow-white drop-shadow-md"
+              >
                 We provide reliable geotechnical investigations, soil testing,
                 and professional engineering consultancy services that help
                 projects start on strong foundations.
@@ -89,7 +91,7 @@ const Hero = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="max-sm:w-full px-10 py-5 bg-transparent font-bold text-white border-[2px] border-white cursor-pointer transition-all duration-300 rounded-md"
+                  className="max-sm:w-full px-10 py-5 bg-transparent font-bold text-white border-[2px] backdrop-blur-sm border-white cursor-pointer transition-all duration-300 rounded-md"
                 >
                   Contact Us
                 </Button>
