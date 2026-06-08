@@ -15,7 +15,7 @@ const services = [
     title: "Geotechnical Investigation",
     amharic: "የጂኦቴክኒካል ምርመራ",
     description:
-      "Comprehensive site characterisation using borehole drilling, in-situ testing, and 3D ground modelling to define subsurface conditions for safe design.",
+      "Comprehensive site investigation using borehole drilling, field testing, and subsurface analysis.",
     highlights: ["Borehole Drilling", "In-Situ Testing", "3D Ground Modelling"],
   },
   {
@@ -23,7 +23,7 @@ const services = [
     title: "Foundation Design & Analysis",
     amharic: "የፋውንዴሽን ዲዛይን እና ትንታኔ",
     description:
-      "Deep and shallow foundation design including driven piles, bored piles, raft foundations, and ground improvement schemes for all structure types.",
+      "Design and assessment of shallow and deep foundations for all structure types.",
     highlights: [
       "Driven & Bored Piles",
       "Raft Foundations",
@@ -35,7 +35,7 @@ const services = [
     title: "Slope Stability & Earthworks",
     amharic: "የኮረብታ መረጋጋት እና የምድር ሥራ",
     description:
-      "Stability assessment, remediation design, and earthworks specification for embankments, cuttings, retaining structures, and landslide-prone terrain.",
+      "Engineering solutions for slopes, retaining systems, embankments, and landslide-prone areas.",
     highlights: [
       "Stability Assessment",
       "Retaining Structures",
@@ -47,7 +47,7 @@ const services = [
     title: "Construction Monitoring",
     amharic: "የግንባታ ክትትል",
     description:
-      "On-site geotechnical supervision and testing during construction — ensuring ground conditions match design assumptions throughout the entire build.",
+      "Site supervision and quality control to ensure construction meets engineering requirements.",
     highlights: ["Site Supervision", "QA / QC Testing", "Compliance Reporting"],
   },
   {
@@ -55,7 +55,7 @@ const services = [
     title: "Laboratory Testing",
     amharic: "የላቦራቶሪ ሙከራ",
     description:
-      "Accredited soil and rock testing covering particle size, shear strength, consolidation, compaction, and chemical analysis to ISO 17892 standards.",
+      "Professional soil and rock testing services following international standards.",
     highlights: [
       "Shear Strength Tests",
       "Consolidation Tests",
@@ -67,7 +67,7 @@ const services = [
     title: "Pavement & Road Engineering",
     amharic: "የመንገድ እና ፓቬምንት ምህንድስና",
     description:
-      "Subgrade assessment, pavement design, and materials testing for road, highway, and airfield projects across all traffic loading classifications.",
+      "Road and pavement design supported by materials testing and subgrade evaluation.",
     highlights: ["Subgrade Assessment", "Pavement Design", "Materials Testing"],
   },
   {
@@ -75,7 +75,7 @@ const services = [
     title: "Environmental & Contamination",
     amharic: "የአካባቢ እና የብክለት ጥናት",
     description:
-      "Phase I and Phase II environmental assessments, contamination risk evaluation, and remediation strategies aligned with international standards.",
+      "Environmental assessments, contamination studies, and remediation planning.",
     highlights: [
       "Phase I & II Assessments",
       "Risk Evaluation",
@@ -87,7 +87,7 @@ const services = [
     title: "Expert Witness & Advisory",
     amharic: "የቴክኒክ አማካሪ አገልግሎት",
     description:
-      "Independent technical review, dispute resolution support, and expert witness services for geotechnical claims and failure investigations.",
+      "Independent technical review and specialist advisory services for complex projects.",
     highlights: [
       "Independent Review",
       "Dispute Resolution",
@@ -98,119 +98,208 @@ const services = [
 
 const Services = () => {
   return (
-    <section
-      className="w-full py-10 md:py-20 px-5 bg-[#EE6123] relative overflow-hidden"
-      id="service"
-    >
-      {/* ambient texture circles */}
-      <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white/5" />
-      <div className="pointer-events-none absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-white/5" />
-
-      {/* ── Header ── */}
-      <div className="text-center mb-12 relative z-10">
-        <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#EE6123] bg-white px-3 py-1 rounded-full mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#EE6123]" />
-          What We Do
-        </span>
-        <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">
-          Our Services
-        </h2>
-        <p className="text-sm font-medium text-white/70 mt-4 max-w-xl mx-auto leading-relaxed">
-          From initial site investigation through to final design sign-off,
-          Gefrem Engineering delivers{" "}
-          <span className="text-white font-semibold">
-            full-lifecycle geotechnical
-          </span>{" "}
-          consultancy on every project.
-        </p>
-        <p className="text-base text-white/60 mt-2 font-bold" lang="am">
-          ጥራት፣ አመኔታ እና ብቃት — የእኛ መሠረት ነው፡፡
-        </p>
-      </div>
-
-      {/* ── Services grid ── */}
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-        {services.map(
-          ({ icon: Icon, title, amharic, description, highlights }) => (
-            <div
-              key={title}
-              className="group relative flex flex-col gap-4 p-5 rounded-xl
-                       bg-white/10 border border-white/20 backdrop-blur-sm
-                       hover:bg-white hover:-translate-y-1.5
-                       hover:shadow-xl hover:shadow-black/20
-                       transition-all duration-300 ease-out cursor-default overflow-hidden"
-            >
-              {/* top accent bar */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-white scale-x-0 group-hover:bg-[#EE6123] group-hover:scale-x-100 transition-all duration-300 origin-left rounded-t-xl" />
-
-              {/* Icon */}
-              <div className="flex items-center justify-center w-11 h-11 rounded-lg bg-white/20 border border-white/20 shrink-0 transition-all duration-300 group-hover:bg-[#FFF0E8] group-hover:border-[#EE6123]/10">
-                <Icon
-                  className="text-white group-hover:text-[#EE6123] transition-colors duration-300"
-                  size={20}
-                />
+    <section id="service" className="w-full px-5 bg-[#F7F6F3]">
+      <div className="max-w-7xl mx-auto">
+        {/* Featured Service */}
+        <div className="mb-10">
+          <div className="bg-[#EE6123] border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm">
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+              <div className="w-16 h-16 rounded-2xl bg-[#FFF0E8] flex items-center justify-center shrink-0">
+                <Microscope size={30} className="text-[#EE6123]" />
               </div>
 
-              {/* Title */}
               <div>
-                <p className="font-bold text-sm text-white group-hover:text-gray-900 leading-snug tracking-tight transition-colors duration-300">
-                  {title}
+                <span className="text-xs font-bold uppercase tracking-wider text-white">
+                  Core Service
+                </span>
+
+                <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mt-2">
+                  Geotechnical Investigation
+                </h3>
+
+                <p className="text-white mt-4 leading-relaxed max-w-3xl">
+                  We provide comprehensive site investigations using advanced
+                  drilling, field testing, and subsurface analysis to deliver
+                  reliable ground data for safe and cost-effective engineering
+                  design.
                 </p>
-                <p
-                  className="text-xs font-semibold text-white/60 group-hover:text-[#EE6123] mt-0.5 transition-colors duration-300"
-                  lang="am"
-                >
-                  {amharic}
-                </p>
+
+                <div className="flex flex-wrap gap-3 mt-5">
+                  {[
+                    "Borehole Drilling",
+                    "In-Situ Testing",
+                    "Ground Investigation",
+                    "Site Characterisation",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="px-4 py-2 rounded-full bg-[#FFF0E8] text-[#EE6123] text-sm font-semibold"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-
-              {/* Description */}
-              <p className="text-xs font-medium text-white/60 group-hover:text-gray-400 leading-relaxed flex-1 transition-colors duration-300">
-                {description}
-              </p>
-
-              {/* Highlights */}
-              <ul className="flex flex-col gap-1.5 pt-3 border-t border-white/20 group-hover:border-gray-100 transition-colors duration-300">
-                {highlights.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-xs font-semibold text-white/70 group-hover:text-gray-500 transition-colors duration-300"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-white group-hover:bg-[#EE6123] shrink-0 transition-colors duration-300" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </div>
-          ),
-        )}
-      </div>
+          </div>
+        </div>
 
-      {/* ── CTA ── */}
-      <div className="mt-14 text-center relative z-10">
-        <p className="text-white/60 font-medium text-sm mb-5">
-          Ready to start your project? ·{" "}
-          <span lang="am">ፕሮጀክትዎን ለመጀመር ዝግጁ ነዎት?</span>
-        </p>
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 bg-white text-[#EE6123] font-semibold text-sm px-8 py-3 rounded-lg
-                     shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95
-                     transition-all duration-200"
-        >
-          Request a Consultation
-          <svg
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-3.5 h-3.5"
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span
+            className="
+              inline-flex items-center gap-2
+              px-4 py-1.5
+              rounded-full
+              bg-[#FFF0E8]
+              text-[#EE6123]
+              text-xs
+              font-bold
+              uppercase
+              tracking-widest
+            "
           >
-            <path d="M3 8h10M9 4l4 4-4 4" />
-          </svg>
-        </a>
+            <span className="w-2 h-2 rounded-full bg-[#EE6123]" />
+            Our Expertise
+          </span>
+
+          <h2 className="mt-5 text-4xl md:text-5xl font-black text-gray-900 leading-tight">
+            Engineering Solutions From
+            <span className="text-[#EE6123]"> Ground Investigation</span> to
+            Construction Delivery
+          </h2>
+
+          <p className="mt-5 text-gray-500 leading-relaxed">
+            Delivering geotechnical investigations, foundation engineering,
+            laboratory testing, construction supervision, and technical
+            consultancy services for projects of every scale.
+          </p>
+
+          <p className="mt-3 text-sm font-semibold text-[#EE6123]" lang="am">
+            ጥራት፣ አመኔታ እና ብቃት — የእኛ መሠረት ነው።
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          {services.map(
+            ({ icon: Icon, title, amharic, description, highlights }) => (
+              <div
+                key={title}
+                className="
+                  group
+                  bg-white
+                  rounded-2xl
+                  border
+                  border-gray-200
+                  p-6
+                  transition-all
+                  duration-300
+                  hover:-translate-y-2
+                  hover:shadow-xl
+                  hover:border-[#EE6123]/30
+                "
+              >
+                <div className="flex gap-4">
+                  <div
+                    className="
+                      w-14 h-14
+                      shrink-0
+                      rounded-xl
+                      bg-[#FFF0E8]
+                      flex items-center justify-center
+                    "
+                  >
+                    <Icon size={26} className="text-[#EE6123]" />
+                  </div>
+
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 leading-tight">
+                      {title}
+                    </h3>
+
+                    <p
+                      lang="am"
+                      className="text-xs text-[#EE6123] font-semibold mt-1"
+                    >
+                      {amharic}
+                    </p>
+
+                    <p className="text-sm text-gray-500 leading-relaxed mt-3">
+                      {description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {highlights.map((item) => (
+                        <span
+                          key={item}
+                          className="
+                            px-3 py-1
+                            rounded-full
+                            bg-gray-100
+                            text-gray-600
+                            text-xs
+                            font-medium
+                          "
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ),
+          )}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-20">
+          <div className="bg-[#EE6123] rounded-3xl p-10 md:p-14 text-center">
+            <h3 className="text-3xl md:text-4xl font-black text-white">
+              Ready to Build on a Solid Foundation?
+            </h3>
+
+            <p className="text-white/80 mt-4 max-w-2xl mx-auto">
+              Partner with Gefrem Engineering for reliable site investigations,
+              foundation solutions, construction supervision, and engineering
+              consultancy tailored to your project.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <a
+                href="#contact"
+                className="
+                  bg-white
+                  text-[#EE6123]
+                  px-6 py-3
+                  rounded-xl
+                  font-semibold
+                  hover:-translate-y-1
+                  transition-all
+                "
+              >
+                Request Consultation
+              </a>
+
+              <a
+                href="#projects"
+                className="
+                  border
+                  border-white/30
+                  text-white
+                  px-6 py-3
+                  rounded-xl
+                  font-semibold
+                  hover:bg-white/10
+                  transition-all
+                "
+              >
+                View Projects
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

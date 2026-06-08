@@ -1,281 +1,262 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 
-const categories = [
-  { id: "all", label: "All Projects", amharic: "ሁሉም" },
-  { id: "sanitary", label: "Sanitary", amharic: "ሳኒታሪ" },
-  { id: "electric", label: "Electrical", amharic: "ኤሌክትሪክ" },
-  { id: "ceramic", label: "Ceramics", amharic: "ሴራሚክ" },
-  { id: "aluminum", label: "Aluminum", amharic: "አሉሚኒየም" },
-];
+// Replace with your actual images
+import project1 from "@/assets/bg_01.png";
+import project2 from "@/assets/cons11.png";
+import project3 from "@/assets/cons33.png";
 
 const projects = [
   {
-    id: 1,
-    category: "sanitary",
-    title: "Luxury Hotel Bathroom Fit-Out",
-    amharic: "የቅንጦት ሆቴል የሳኒታሪ ሥራ",
-    location: "Addis Ababa, Ethiopia",
-    year: "2024",
+    title: "Commercial Tower Foundation Study",
+    category: "Geotechnical Investigation",
+    image: project1,
     description:
-      "Full sanitary installation across 120 hotel rooms including concealed cisterns, wall-hung WCs, rainfall showers, and bespoke vanity units.",
-    tags: ["Hotel", "Commercial", "120 Rooms"],
-    accent: "#f97316",
-    number: "01",
+      "Comprehensive geotechnical investigation and foundation design for a multi-storey commercial development, including borehole drilling and laboratory testing.",
+    tags: ["Borehole Drilling", "Soil Testing", "Foundation Design"],
   },
   {
-    id: 2,
-    category: "electric",
-    title: "Corporate Office Electrical Finishing",
-    amharic: "የቢሮ ህንፃ የኤሌክትሪክ ሥራ",
-    location: "Bole, Addis Ababa",
-    year: "2024",
+    title: "Regional Highway Engineering",
+    category: "Road & Pavement Engineering",
+    image: project2,
     description:
-      "Complete electrical finishing for a 6-floor office tower — panel boards, conduit works, switch & socket installations, and LED lighting systems.",
-    tags: ["Office", "6 Floors", "LED Systems"],
-    accent: "#fb923c",
-    number: "02",
+      "Subgrade investigation, pavement design, and materials testing for a major highway infrastructure project.",
+    tags: ["Road Design", "CBR Testing", "Pavement Analysis"],
   },
   {
-    id: 3,
-    category: "ceramic",
-    title: "Residential Villa Floor Tiling",
-    amharic: "የመኖሪያ ቪላ ሴራሚክ ንጣፍ",
-    location: "CMC, Addis Ababa",
-    year: "2023",
+    title: "Slope Stabilisation Project",
+    category: "Slope Stability",
+    image: project3,
     description:
-      "800m² of large-format porcelain and natural stone tiling throughout a private villa, including feature walls, bathrooms, and outdoor terraces.",
-    tags: ["Residential", "800m²", "Porcelain"],
-    accent: "#ea580c",
-    number: "03",
-  },
-  {
-    id: 4,
-    category: "aluminum",
-    title: "Shopping Mall Aluminum Facades",
-    amharic: "የሾፒንግ ሞል አሉሚኒየም ፊት ለፊት",
-    location: "Megenagna, Addis Ababa",
-    year: "2024",
-    description:
-      "Structural glazing, aluminum cladding, and curtain wall systems for a 3-storey retail mall covering over 1,200m² of external facade.",
-    tags: ["Commercial", "1,200m²", "Curtain Wall"],
-    accent: "#c2410c",
-    number: "04",
-  },
-  {
-    id: 5,
-    category: "sanitary",
-    title: "Apartment Complex Sanitary Works",
-    amharic: "የአፓርትመንት ሳኒታሪ ሥራ",
-    location: "Sarbet, Addis Ababa",
-    year: "2023",
-    description:
-      "Sanitary installation across 48 residential apartments including water supply, drainage systems, and full bathroom fixture fitting.",
-    tags: ["Residential", "48 Units", "Full Fit-Out"],
-    accent: "#f97316",
-    number: "05",
-  },
-  {
-    id: 6,
-    category: "electric",
-    title: "Hospital Electrical Fit-Out",
-    amharic: "የሆስፒታል የኤሌክትሪክ ፍጻሜ ሥራ",
-    location: "Addis Ababa",
-    year: "2023",
-    description:
-      "Specialized electrical finishing for a private hospital — emergency lighting, nurse call systems, theatre lighting, and earthing installations.",
-    tags: ["Healthcare", "Specialist", "Emergency Systems"],
-    accent: "#fb923c",
-    number: "06",
-  },
-  {
-    id: 7,
-    category: "ceramic",
-    title: "Hotel Lobby & Corridor Tiling",
-    amharic: "የሆቴል ሎቢ ሴራሚክ ሥራ",
-    location: "Kazanchis, Addis Ababa",
-    year: "2024",
-    description:
-      "Intricate marble and large-format tile laying across hotel lobbies, corridors, and feature staircases to achieve a five-star finish.",
-    tags: ["Hospitality", "Marble", "5-Star"],
-    accent: "#ea580c",
-    number: "07",
-  },
-  {
-    id: 8,
-    category: "aluminum",
-    title: "Office Tower Aluminum Windows",
-    amharic: "የቢሮ ህንፃ አሉሚኒየም መስኮቶች",
-    location: "Bole Road, Addis Ababa",
-    year: "2023",
-    description:
-      "Supply and installation of thermally broken aluminum windows, curtain walls, and entrance doors across a 10-storey commercial tower.",
-    tags: ["Commercial", "10 Floors", "Thermal Break"],
-    accent: "#c2410c",
-    number: "08",
+      "Assessment and remediation design for unstable terrain, including retaining structures and drainage improvements.",
+    tags: ["Slope Analysis", "Earthworks", "Retaining Walls"],
   },
 ];
 
-const categoryColors = {
-  sanitary: "bg-blue-100 text-blue-700",
-  electric: "bg-yellow-100 text-yellow-700",
-  ceramic: "bg-stone-100 text-stone-700",
-  aluminum: "bg-slate-100 text-slate-700",
-};
-
 const Projects = () => {
-  const [active, setActive] = useState("all");
-  const [hovered, setHovered] = useState(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+  });
 
-  const filtered =
-    active === "all" ? projects : projects.filter((p) => p.category === active);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    onSelect();
+    emblaApi.on("select", onSelect);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
 
   return (
     <section
-      className="w-full py-10 md:py-20 px-5"
       id="projects"
-      // style={{
-      //   background:
-      //     "linear-gradient(135deg, #fff7ed 0%, #ffedd5 60%, #fed7aa 100%)",
-      // }}
+      className="w-full py-16 md:py-24 px-5 bg-white overflow-hidden"
     >
-      {/* Header */}
-      <div className="text-center mb-10">
-        <p className="text-sm font-black uppercase tracking-widest text-orange-400 mb-2">
-          Our Work · የእኛ ሥራዎች
-        </p>
-        <h2 className="text-4xl md:text-5xl font-black text-gray-900">
-          Featured Projects
-        </h2>
-        <p className="text-base font-semibold text-gray-600 mt-4 max-w-xl mx-auto leading-relaxed">
-          A selection of our finest{" "}
-          <span className="text-orange-500 font-black">Level 5</span> finishing
-          projects across Ethiopia — delivered with precision and pride.
-        </p>
-        <p className="text-sm text-orange-500 mt-2 font-bold" lang="am">
-          በኢትዮጵያ ውስጥ ካጠናቀቅናቸው ምርጥ ፕሮጀክቶቻችን መካከል።
-        </p>
-      </div>
-
-      {/* Filter tabs */}
-      <div className="flex flex-wrap justify-center gap-2 mb-10">
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => setActive(cat.id)}
-            className={`px-5 py-2 rounded-full text-sm font-black border-2 transition-all duration-200
-              ${
-                active === cat.id
-                  ? "bg-orange-500 border-orange-500 text-white shadow-md scale-105"
-                  : "bg-white border-orange-200 text-gray-700 hover:border-orange-400 hover:text-orange-500"
-              }`}
-          >
-            {cat.label}
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+          <div className="max-w-3xl">
             <span
-              className={`ml-1.5 text-xs font-bold ${active === cat.id ? "text-orange-100" : "text-orange-400"}`}
-              lang="am"
+              className="
+                inline-flex items-center gap-2
+                px-4 py-1.5
+                rounded-full
+                bg-[#FFF0E8]
+                text-[#EE6123]
+                text-xs
+                font-bold
+                uppercase
+                tracking-widest
+              "
             >
-              · {cat.amharic}
+              <span className="w-2 h-2 rounded-full bg-[#EE6123]" />
+              Featured Projects
             </span>
-          </button>
-        ))}
-      </div>
 
-      {/* Projects grid */}
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {filtered.map((project) => (
-          <div
-            key={project.id}
-            onMouseEnter={() => setHovered(project.id)}
-            onMouseLeave={() => setHovered(null)}
-            className="group relative flex flex-col rounded-2xl border-2 border-orange-100 bg-white shadow-sm
-              hover:shadow-2xl hover:border-orange-400 hover:-translate-y-3
-              transition-all duration-300 ease-out cursor-pointer overflow-hidden"
-          >
-            {/* Top color band with project number */}
-            <div
-              className="relative flex items-center justify-between px-5 py-4 transition-all duration-300"
-              style={{
-                background:
-                  hovered === project.id
-                    ? `linear-gradient(135deg, ${project.accent}, #fed7aa)`
-                    : "linear-gradient(135deg, #ffedd5, #fff7ed)",
-              }}
-            >
-              <span
-                className="text-4xl font-black transition-colors duration-300"
-                style={{
-                  color:
-                    hovered === project.id
-                      ? "rgba(255,255,255,0.3)"
-                      : "#fed7aa",
-                }}
-              >
-                {project.number}
-              </span>
-              <span
-                className={`text-xs font-black px-2.5 py-1 rounded-full capitalize ${categoryColors[project.category]}`}
-              >
-                {project.category}
-              </span>
-            </div>
+            <h2 className="mt-5 text-4xl md:text-5xl font-black text-gray-900 leading-tight">
+              Engineering Success
+              <span className="text-[#EE6123]"> Across Every Project</span>
+            </h2>
 
-            {/* Content */}
-            <div className="flex flex-col gap-3 p-5 flex-1">
-              {/* Title */}
-              <div>
-                <p className="font-black text-sm text-gray-900 group-hover:text-orange-600 transition-colors duration-300 leading-tight">
-                  {project.title}
-                </p>
-                <p
-                  className="text-xs font-bold text-orange-400 mt-0.5 group-hover:text-orange-500 transition-colors duration-300"
-                  lang="am"
-                >
-                  {project.amharic}
-                </p>
-              </div>
-
-              {/* Meta */}
-              <div className="flex items-center gap-1 text-xs font-bold text-gray-400">
-                <span>📍</span>
-                <span>{project.location}</span>
-                <span className="ml-auto bg-orange-50 text-orange-500 px-2 py-0.5 rounded-full font-black">
-                  {project.year}
-                </span>
-              </div>
-
-              {/* Description */}
-              <p className="text-xs font-semibold text-gray-500 leading-relaxed flex-1">
-                {project.description}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-orange-100">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-black px-2 py-0.5 rounded-full bg-orange-50 text-orange-500
-                      group-hover:bg-orange-500 group-hover:text-white transition-all duration-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <p className="mt-5 text-gray-500 leading-relaxed">
+              Explore selected projects demonstrating our expertise in
+              geotechnical investigation, foundation engineering, construction
+              supervision, and infrastructure development.
+            </p>
           </div>
-        ))}
-      </div>
 
-      {/* CTA */}
-      <div className="mt-14 text-center">
-        <p className="text-gray-600 font-bold text-sm mb-4">
-          Want to see your project here? · የእርስዎ ፕሮጀክት እዚህ ይታይ?
-        </p>
-        <a
-          href="#contact"
-          className="inline-block bg-orange-500 hover:bg-orange-600 active:scale-95 text-white font-black text-sm px-10 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
-        >
-          Start Your Project · ፕሮጀክትዎን ይጀምሩ
-        </a>
+          <div className="flex items-center gap-3">
+            <div className="font-bold text-[#EE6123]">
+              {String(selectedIndex + 1).padStart(2, "0")} /{" "}
+              {String(projects.length).padStart(2, "0")}
+            </div>
+
+            <button
+              onClick={scrollPrev}
+              className="
+                w-12 h-12
+                rounded-full
+                border border-gray-200
+                flex items-center justify-center
+                hover:border-[#EE6123]
+                hover:text-[#EE6123]
+                transition-all
+              "
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <button
+              onClick={scrollNext}
+              className="
+                w-12 h-12
+                rounded-full
+                border border-gray-200
+                flex items-center justify-center
+                hover:border-[#EE6123]
+                hover:text-[#EE6123]
+                transition-all
+              "
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+
+        {/* Carousel */}
+        <div ref={emblaRef} className="overflow-hidden">
+          <div className="flex">
+            {projects.map((project, index) => (
+              <div key={index} className="flex-[0_0_100%] min-w-0">
+                <div
+                  className="
+                    bg-white
+                    rounded-3xl
+                    border border-gray-200
+                    overflow-hidden
+                    shadow-sm
+                  "
+                >
+                  <div className="grid lg:grid-cols-2">
+                    {/* Image */}
+                    <div className="relative h-[300px] md:h-[450px]">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+
+                      <div className="absolute top-5 left-5">
+                        <span
+                          className="
+                            px-4 py-2
+                            rounded-full
+                            bg-white/95
+                            text-[#EE6123]
+                            text-xs
+                            font-bold
+                          "
+                        >
+                          {project.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-8 md:p-12 flex flex-col justify-center">
+                      <span className="text-[#EE6123] font-semibold text-sm">
+                        Project Showcase
+                      </span>
+
+                      <h3 className="text-3xl md:text-4xl font-black text-gray-900 mt-3 leading-tight">
+                        {project.title}
+                      </h3>
+
+                      <p className="mt-6 text-gray-500 leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-3 mt-8">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="
+                              px-4 py-2
+                              rounded-full
+                              bg-gray-100
+                              text-gray-600
+                              text-sm
+                              font-medium
+                            "
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-10">
+                        <a
+                          href="#contact"
+                          className="
+                            inline-flex
+                            items-center
+                            gap-2
+                            bg-[#EE6123]
+                            text-white
+                            px-6 py-3
+                            rounded-xl
+                            font-semibold
+                            hover:-translate-y-1
+                            transition-all
+                          "
+                        >
+                          Discuss Similar Project
+                          <ArrowUpRight size={18} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Indicators */}
+        <div className="flex justify-center gap-3 mt-10">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => emblaApi?.scrollTo(index)}
+              className={`
+                h-2 rounded-full transition-all duration-300
+                ${
+                  selectedIndex === index
+                    ? "w-10 bg-[#EE6123]"
+                    : "w-2 bg-gray-300"
+                }
+              `}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

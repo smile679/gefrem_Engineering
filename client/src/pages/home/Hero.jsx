@@ -21,7 +21,7 @@ const Hero = () => {
           id="home"
           className="min-h-screen w-full bg-[url(@/assets/033.png)] bg-no-repeat bg-cover bg-right"
         >
-          <div className="w-full max-w-6xl mx-auto h-full flex max-sm:flex-col items-center justify-between px-5 pt-30 md:pt-35 md:pb-10">
+          <div className="w-full max-w-6xl mx-auto h-full flex max-sm:flex-col items-center justify-between px-5 pt-30 md:pb-10">
             <div className="w-full h-full flex md:flex-1 flex-col justify-between text-white">
               <h3 className="w-fit text-sm flex justify-center items-center h-0.5 text-center bg-white text-gray-900 rounded-lg leading-none py-3 px-2">
                 Geotechnical Investigation & Consultancy
