@@ -1,10 +1,3 @@
-import cons11 from "@/assets/cons11.png"
-import cons22 from "@/assets/cons22.png"
-import cons33 from "@/assets/cons33.png"
-import img2 from "@/assets/022.png"
-import img1 from "@/assets/011.png"
-import bg_01 from "@/assets/bg_01.png"
-import cons77 from "@/assets/const77.png"
 import { Button } from "@/components/ui/button";
 import SplitText from "@/components/motion/splitText";
 
