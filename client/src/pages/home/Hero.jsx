@@ -19,17 +19,17 @@ const Hero = () => {
       <>
         <section
           id="home"
-          className="min-h-screen w-full bg-[url(@/assets/022.png)] bg-no-repeat bg-cover bg-right"
+          className="min-h-screen w-full bg-[url(@/assets/000.png)] bg-no-repeat bg-cover bg-right"
         >
           <div className="w-full max-w-6xl mx-auto h-full flex max-sm:flex-col items-center justify-center px-5 pt-30 md:pb-10">
             <div className="w-full h-full flex md:flex-1 flex-col justify-between text-white">
-              <h3 className="w-fit text-sm flex justify-center items-center h-0.5 text-center bg-white text-gray-900 rounded-lg leading-none py-3 px-2">
+              <h3 className="w-fit text-sm flex justify-center items-center h-0.5 text-center bg-orange-200 text-gray-900 rounded-lg leading-none py-3 px-2">
                 Geotechnical Investigation & Consultancy
               </h3>
               <h1 className=" text-shadow-gray-900 text-shadow-sm leading-tight m-0 p-0">
                 <SplitText
                   text="Engineering"
-                  className="text-5xl sm:text-7xl font-bold leading-tight text-gray-900"
+                  className="text-6xl sm:text-7xl font-bold leading-tight text-gray-900 max-sm:text-white"
                   delay={50}
                   duration={1.25}
                   ease="power3.out"
@@ -46,7 +46,7 @@ const Hero = () => {
               <h1 className="text-shadow-orange-700 text-shadow-sm">
                 <SplitText
                   text="Confidence."
-                  className="text-5xl sm:text-7xl font-bold leading-tight text-orange-500"
+                  className="text-6xl sm:text-7xl font-bold leading-tight text-orange-500"
                   delay={50}
                   duration={1.25}
                   ease="bounce.out"
@@ -63,7 +63,7 @@ const Hero = () => {
               <h1 className=" text-shadow-gray-900 text-shadow-sm">
                 <SplitText
                   text="Building Futures."
-                  className="text-5xl sm:text-6xl font-bold leading-tight text-gray-900"
+                  className="text-6xl sm:text-6xl font-bold leading-tight text-gray-900 max-sm:text-white"
                   delay={50}
                   duration={1.25}
                   ease="power3.out"
@@ -78,8 +78,8 @@ const Hero = () => {
                 />
               </h1>
               <p
-                className="w-full max-w-md my-3 text-lg md:text-md text-center font-bold
-               text-gray-900 text-shadow-2xs text-shadow-gray-200 leading-relaxed drop-shadow-white drop-shadow-md"
+                className="w-full md:max-w-md my-3 text-xl md:text-md text-center font-bold max-sm:tracking-widest
+               max-sm:text-white text-gray-900 leading-relaxed max-sm:text-shadow-gray-600 max-sm:text-shadow-sm"
               >
                 We provide reliable geotechnical investigations, soil testing,
                 and professional engineering consultancy services that help

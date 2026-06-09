@@ -57,9 +57,7 @@ const About = () => {
         </div>
       </Reveal>
 
-      {/* ── Main content ── */}
       <div className="w-full max-w-6xl mx-auto flex flex-row-reverse max-md:flex-col-reverse items-center gap-10">
-        {/* ── Left col: image + stats ── */}
         <div className="w-full flex flex-1 flex-col justify-between gap-y-5">
           <Reveal>
             <div className="relative">
@@ -71,7 +69,6 @@ const About = () => {
             </div>
           </Reveal>
 
-          {/* Stats row */}
           <Reveal>
             <div className="grid grid-cols-4 gap-3 py-4 border-y border-gray-200">
               {stats.map(({ value, suffix, label }) => (
@@ -100,11 +97,10 @@ const About = () => {
           </Reveal>
         </div>
 
-        {/* ── Right col: text + feature cards ── */}
         <div className="flex flex-col gap-6 flex-1">
           <div>
             <Reveal>
-              <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 leading-snug tracking-tight">
+              <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center leading-snug tracking-tight">
                 Engineering the Ground{" "}
                 <span className="text-[#EE6123]">Beneath Your Vision</span>
               </h3>
@@ -127,11 +123,11 @@ const About = () => {
               <Reveal>
                 <div
                   key={title}
-                  className="group flex flex-col gap-3 p-4 rounded-xl bg-white border border-gray-200 shadow-sm
+                  className="group w-full max-sm:h-64 flex flex-col gap-3 p-4 rounded-xl bg-white border border-gray-200 shadow-sm
                            hover:border-[#EE6123]/30 hover:shadow-md hover:shadow-orange-100 hover:-translate-y-0.5
                            transition-all duration-200 cursor-default relative overflow-hidden"
                 >
-                  {/* top accent bar on hover */}
+                  
                   <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#EE6123] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-t-xl" />
 
                   <div className="flex max-sm:flex-col gap-4 items-center">

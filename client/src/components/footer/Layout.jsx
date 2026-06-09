@@ -117,7 +117,7 @@ export default function Footer() {
 
               <div className="flex gap-3">
                 <Mail className="text-white shrink-0" size={20} />
-                <p>info@buildcore.com</p>
+                <p>www.gefremEngineering.com</p>
               </div>
             </div>
           </div>
@@ -126,7 +126,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-6 gap-4">
           <p className="text-white text-sm text-center md:text-left">
-            © 2026 BuildCore Construction. All rights reserved.
+            © 2026 gefrem engineering. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6 text-sm text-black">
