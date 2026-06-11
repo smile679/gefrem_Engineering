@@ -3,95 +3,81 @@ import {
   Phone,
   Mail,
   CircleFadingPlus,
-  University,
-  Cable,
+  ScanFace,
+  Link,
 } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-[#EE6123]">
+    <footer className="bg-slate-950 text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-white/10 pb-12">
-          {/* Company Info */}
+        {/* TOP GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12">
+          {/* COMPANY INFO */}
           <div>
-            <h2 className=" text-2xl font-bold tracking-wide">
-              Gefrem<span className="text-white pl-2">Engineering</span>
+            <h2 className="text-2xl font-bold tracking-wide">
+              <span className="text-[#EE6123]">Gefrem</span> Engineering
             </h2>
 
-            <p className="text-white mt-5 leading-relaxed">
-              Trusted Level 5 construction company delivering modern commercial,
-              industrial, and infrastructure solutions with precision and
-              quality.
+            <p className="text-slate-400 mt-5 leading-relaxed">
+              Building excellence through innovative engineering, quality
+              construction, and reliable project delivery across Ethiopia.
             </p>
 
-            {/* Socials */}
+            {/* SOCIALS */}
             <div className="flex items-center gap-4 mt-6">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white border border-white/10 flex items-center justify-center hover:bg-orange-500 transition-all duration-300"
-              >
+              <a className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE6123] transition">
+                <ScanFace size={18} />
+              </a>
+
+              <a className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE6123] transition">
                 <CircleFadingPlus size={18} />
               </a>
 
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white border border-white/10 flex items-center justify-center hover:bg-orange-500 transition-all duration-300"
-              >
-                <University size={18} />
-              </a>
-
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white border border-white/10 flex items-center justify-center hover:bg-orange-500 transition-all duration-300"
-              >
-                <Cable size={18} />
+              <a className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE6123] transition">
+                <Link size={18} />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* QUICK LINKS */}
           <div>
             <h3 className="text-lg font-semibold mb-5">Quick Links</h3>
 
-            <ul className="space-y-3 text-black">
+            <ul className="space-y-3 text-slate-400">
               <li>
-                <a href="#" className="text-white transition">
+                <a href="#home" className="hover:text-[#EE6123] transition-all scroll-auto">
                   Home
                 </a>
               </li>
-
               <li>
-                <a href="#" className="text-white transition">
+                <a href="#about" className="hover:text-[#EE6123] transition">
                   About
                 </a>
               </li>
-
               <li>
-                <a href="#" className="text-white transition">
+                <a href="#service" className="hover:text-[#EE6123] transition">
                   Services
                 </a>
               </li>
-
               <li>
-                <a href="#" className="text-white transition">
+                <a href="#projects" className="hover:text-[#EE6123] transition">
                   Projects
                 </a>
               </li>
-
               <li>
-                <a href="#" className="text-white transition">
+                <a href="#contact" className="hover:text-[#EE6123] transition">
                   Contact
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* SERVICES */}
           <div>
             <h3 className="text-lg font-semibold mb-5">Services</h3>
 
-            <ul className="space-y-3 text-white">
+            <ul className="space-y-3 text-slate-400">
               <li>Commercial Construction</li>
               <li>Industrial Projects</li>
               <li>Renovation & Remodeling</li>
@@ -100,44 +86,38 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* CONTACT */}
           <div>
             <h3 className="text-lg font-semibold mb-5">Contact Info</h3>
 
-            <div className="space-y-5 text-white">
+            <div className="space-y-5 text-slate-400">
               <div className="flex gap-3">
-                <MapPin className="text-white shrink-0" size={20} />
+                <MapPin className="text-[#EE6123] shrink-0" size={20} />
                 <p>Addis Ababa, Ethiopia</p>
               </div>
 
               <div className="flex gap-3">
-                <Phone className="text-white shrink-0" size={20} />
+                <Phone className="text-[#EE6123] shrink-0" size={20} />
                 <p>+251 900 000 000</p>
               </div>
 
               <div className="flex gap-3">
-                <Mail className="text-white shrink-0" size={20} />
-                <p>www.gefremEngineering.com</p>
+                <Mail className="text-[#EE6123] shrink-0" size={20} />
+                <p>info@gefremengineering.com</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-6 gap-4">
-          <p className="text-white text-sm text-center md:text-left">
-            © 2026 gefrem engineering. All rights reserved.
+        {/* BOTTOM BAR */}
+        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-slate-500 text-sm text-center md:text-left">
+            © 2026 Gefrem Engineering. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-6 text-sm text-black">
-            <a href="#" className="hover:text-white transition">
-              Privacy Policy
-            </a>
-
-            <a href="#" className="hover:text-white transition">
-              Terms & Conditions
-            </a>
-          </div>
+          <p className="text-slate-600 text-sm">
+            Designed & Developed by Samison Gidey
+          </p>
         </div>
       </div>
     </footer>
